@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: school-management
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: appuser
+Implementation-Vendor-Id: com.student
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/school-manag
+ ement/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
