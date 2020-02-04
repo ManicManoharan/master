@@ -21,64 +21,69 @@ import java.util.List;
 @RequestMapping("/rest/student")
 public class StudentController {
 
-    @Autowired
-    StudentRepository studentRepository;
-    
-    /**
-     * API to get All Student Details
-     * @return
-     */
-     
-    @GetMapping("/all")
-    public List<Student> getAll() {
-        return studentRepository.findAll();
-    }
+	@Autowired
+	StudentRepository studentRepository;
 
-    /**
-     * API to get student details by roll number
-     * @param rollNo
-     * @return
-     */
-    @GetMapping("/{rollNo}")
-    public Student getStudent(@PathVariable("rollNo") final long rollNo) {
-        return studentRepository.findByRollNo(rollNo);
+	/**
+	 * API to get All Student Details
+	 * 
+	 * @return
+	 */
 
-    }
-    
-    /**
-     * API to save student details
-     * DTO is converted to entity Object and updated in database
-     * @param dto
-     * @return
-     */
-    @PostMapping("/save}")
-    public Student save(@RequestBody StudentDto dto) {
-    	Student student = new Student();
-    	BeanUtils.copyProperties(dto, student);
-        return studentRepository.save(student);
-    }
+	@GetMapping("/all")
+	public List<Student> getAll() {
+		return studentRepository.findAll();
+	}
 
-    /**
-     * API to update student details (Mandatory to pass existing roll number)
-     * DTO is converted to entity Object and updated in database
-     * @param dto
-     * @return
-     */
-    @PostMapping("/update}")
-    public Student update(@RequestBody StudentDto dto) {
-    	Student student = new Student();
-    	BeanUtils.copyProperties(dto, student);
-        return studentRepository.save(student);
-    }
-    
-    /**
-     * API to delete student by roll number
-     * @param rollNo
-     * @return
-     */
-    @DeleteMapping("/delete")
-    public Integer delete(@RequestParam("rollNo") final long rollNo) {
-        return studentRepository.deleteByRollNo(rollNo);
+	/**
+	 * API to get student details by roll number
+	 * 
+	 * @param rollNo
+	 * @return
+	 */
+	@GetMapping("/{rollNo}")
+	public Student getStudent(@PathVariable("rollNo") final long rollNo) {
+		return studentRepository.findByRollNo(rollNo);
 
-    }
+	}
+
+	/**
+	 * API to save student details DTO is converted to entity Object and updated in
+	 * database
+	 * 
+	 * @param dto
+	 * @return
+	 */
+	@PostMapping("/save}")
+	public Student save(@RequestBody StudentDto dto) {
+		Student student = new Student();
+		BeanUtils.copyProperties(dto, student);
+		return studentRepository.save(student);
+	}
+
+	/**
+	 * API to update student details (Mandatory to pass existing roll number) DTO is
+	 * converted to entity Object and updated in database
+	 * 
+	 * @param dto
+	 * @return
+	 */
+	@PostMapping("/update}")
+	public Student update(@RequestBody StudentDto dto) {
+		Student student = new Student();
+		BeanUtils.copyProperties(dto, student);
+		return studentRepository.save(student);
+	}
+
+	/**
+	 * API to delete student by roll number
+	 * 
+	 * @param rollNo
+	 * @return
+	 */
+	@DeleteMapping("/delete")
+	public Integer delete(@RequestParam("rollNo") final long rollNo) {
+		return studentRepository.deleteByRollNo(rollNo);
+
+	}
 }

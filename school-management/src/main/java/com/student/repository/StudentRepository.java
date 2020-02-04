@@ -5,8 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.student.model.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-	
-    Student findByRollNo(long rollNo);
-    Integer deleteByRollNo(long rollNo);
+
+	Student findByRollNo(long rollNo);
+
+	Integer deleteByRollNo(long rollNo);
 
 }
